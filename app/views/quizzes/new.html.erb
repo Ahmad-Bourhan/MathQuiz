@@ -1,0 +1,35 @@
+<h1>Create a New Quiz</h1>
+
+<%= form_with(model: @quiz, local: true) do |form| %>
+  <div>
+    <%= form.label :operation, "Choose Operation" %><br>
+    <%= form.select :operation, [["Addition (+)", "addition"], ["Subtraction (-)", "subtraction"], ["Multiplication (×)", "multiplication"], ["Division (÷)", "division"]] %>
+  </div>
+
+  <div>
+    <%= form.label :difficulty, "Select Difficulty Level" %><br>
+    <%= form.select :difficulty, [["Easy", "easy"], ["Medium", "medium"], ["Hard", "hard"]] %>
+  </div>
+
+  <div>
+    <%= form.label :total_questions, "Number of Questions" %><br>
+    <%= form.number_field :total_questions, min: 1, max: 20 %>
+  </div>
+
+  <div>
+  <%= form.hidden_field :user_id, value: current_user&.id %>
+
+  </div>
+
+  <div>
+    <%= form.hidden_field :score, value: 0 %>
+  </div>
+
+  <br>
+
+  <%= form.submit "Create Quiz", style: "padding: 10px; background-color: green; color: white; border-radius: 5px;" %>
+<% end %>
+
+<br>
+
+<%= link_to "Back to quizzes", quizzes_path, style: "color: blue; text-decoration: none;" %>

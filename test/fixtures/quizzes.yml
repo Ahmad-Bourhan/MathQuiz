@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  operation: MyString
+  difficulty: MyString
+  total_questions: 1
+  user_id: 1
+  score: 1
+
+two:
+  operation: MyString
+  difficulty: MyString
+  total_questions: 1
+  user_id: 1
+  score: 1

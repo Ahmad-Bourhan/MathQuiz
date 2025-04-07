@@ -1,0 +1,31 @@
+<h1>Create a New Question</h1>
+
+<%= form_with(model: @question, local: true) do |form| %>
+  <div>
+    <%= form.label :question_text, "Question" %><br>
+    <%= form.text_field :question_text %>
+  </div>
+
+  <div>
+    <%= form.label :correct_answer, "Correct Answer" %><br>
+    <%= form.text_field :correct_answer %>
+  </div>
+
+  <div>
+    <%= form.label :difficulty_level, "Difficulty Level" %><br>
+    <%= form.select :difficulty_level, [["Easy", 1], ["Medium", 2], ["Hard", 3]] %>
+  </div>
+
+  <div>
+    <%= form.label :mark, "Mark" %><br>
+    <%= form.number_field :mark %>
+  </div>
+
+  <br>
+
+  <%= form.submit "Create Question", style: "padding: 10px; background-color: green; color: white; border-radius: 5px;" %>
+<% end %>
+
+<br>
+
+<%= link_to "Back to Questions", questions_path, style: "color: blue; text-decoration: none;" %>
