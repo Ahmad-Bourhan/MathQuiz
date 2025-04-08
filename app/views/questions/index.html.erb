@@ -1,5 +1,7 @@
 <h1>Math Quiz - Questions</h1>
 
+<% @quiz ||= @questions.first.quiz if @questions.present? %>
+
 <table border="1" cellpadding="5" cellspacing="0">
   <tr>
     <th>#</th>
@@ -16,20 +18,20 @@
       <td><%= question.question_text %></td>
       <td><%= question.correct_answer %></td>
       <td>
-      <% case question.difficulty_level %>
-      <% when 1 %> 
-        <span style="color: green;">Easy</span>
-      <% when 2 %> 
-        <span style="color: orange;">Medium</span>
-      <% when 3 %> 
-        <span style="color: red;">Hard</span>
-      <% end %>
+        <% case question.difficulty_level %>
+        <% when 1 %> 
+          <span style="color: green;">Easy</span>
+        <% when 2 %> 
+          <span style="color: orange;">Medium</span>
+        <% when 3 %> 
+          <span style="color: red;">Hard</span>
+        <% end %>
       </td>
       <td><%= question.mark %></td>
       <td>
-        <%= link_to "Show", question_path(question) %> |
-        <%= link_to "Edit", edit_question_path(question) %> |
-        <%= link_to "Delete", question_path(question), method: :delete, data: { confirm: "Are you sure?" } %>
+        <%= link_to "Show", quiz_question_path(@quiz, question) %> |
+        <%= link_to "Edit", edit_quiz_question_path(@quiz, question) %> |
+        <%= link_to "Delete", quiz_question_path(@quiz, question), method: :delete, data: { confirm: "Are you sure?" } %>
       </td>
     </tr>
   <% end %>
@@ -37,4 +39,4 @@
 
 <br>
 
-<%= link_to "New Question", new_question_path, style: "padding: 10px; background-color: blue; color: white; text-decoration: none; border-radius: 5px;" %>
+<%= link_to "New Question", new_quiz_question_path(@quiz), style: "padding: 10px; background-color: blue; color: white; text-decoration: none; border-radius: 5px;" %>

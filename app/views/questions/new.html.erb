@@ -1,6 +1,8 @@
 <h1>Create a New Question</h1>
 
-<%= form_with(model: @question, local: true) do |form| %>
+<% @quiz ||= @question.quiz %>
+
+<%= form_with(model: [@quiz, @question], local: true) do |form| %>
   <div>
     <%= form.label :question_text, "Question" %><br>
     <%= form.text_field :question_text %>
@@ -28,4 +30,4 @@
 
 <br>
 
-<%= link_to "Back to Questions", questions_path, style: "color: blue; text-decoration: none;" %>
+<%= link_to "Back to Questions", quiz_questions_path(@quiz), style: "color: blue; text-decoration: none;" %>

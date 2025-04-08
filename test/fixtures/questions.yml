@@ -5,9 +5,12 @@ one:
   correct_answer: MyString
   difficulty_level: 1
   mark: 1
+  quiz: one
 
 two:
   question_text: MyString
   correct_answer: MyString
   difficulty_level: 1
   mark: 1
+  quiz: one
+

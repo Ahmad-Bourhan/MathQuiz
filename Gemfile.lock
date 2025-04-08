@@ -1,5 +1,5 @@
 GEM
-  remote: https://rubygems.org/
+  remote: https://gems.ruby-china.com/
   specs:
     actioncable (7.2.2.1)
       actionpack (= 7.2.2.1)
@@ -280,6 +280,10 @@ GEM
     xpath (3.2.0)
       nokogiri (~> 1.8)
     zeitwerk (2.7.2)
+
+GEM
+  remote: https://rails-assets.org/
+  specs:
 
 PLATFORMS
   x64-mingw-ucrt

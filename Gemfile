@@ -1,4 +1,8 @@
-source "https://rubygems.org"
+source 'https://rails-assets.org' do
+end
+
+source 'https://gems.ruby-china.com'
+
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.2.2", ">= 7.2.2.1"
