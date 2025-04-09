@@ -1,6 +1,8 @@
 class QuestionsController < ApplicationController
   before_action :set_quiz
   before_action :set_question, only: %i[ show edit update destroy ]
+  before_action :authorize_owner!, only: [:edit, :update, :destroy]
+
 
   def index
     @questions = @quiz.questions
@@ -52,4 +54,10 @@ class QuestionsController < ApplicationController
   def question_params
     params.require(:question).permit(:question_text, :correct_answer, :difficulty_level, :mark)
   end
+  def authorize_owner!
+    unless @quiz.user_id == current_user.id
+      redirect_to quizzes_path, alert: "You are not authorized to perform this action."
+    end
+  end
+  
 end

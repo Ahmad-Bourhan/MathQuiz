@@ -19,5 +19,9 @@
 
   <body>
     <%= yield %>
+    <% if current_user %>
+  <%= button_to "Logout", logout_path, method: :delete, data: { confirm: "Are you sure?" }, style: "background-color: red; color: white; padding: 5px; border-radius: 5px;" %>
+<% end %>
+
   </body>
 </html>

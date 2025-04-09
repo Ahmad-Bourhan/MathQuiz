@@ -1,6 +1,8 @@
 class QuizzesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_quiz, only: %i[ show edit update destroy ]
+  before_action :authorize_owner!, only: [:edit, :update, :destroy]
+
 
   # GET /quizzes or /quizzes.json
   def index
@@ -88,7 +90,12 @@ class QuizzesController < ApplicationController
     def set_quiz
       @quiz = Quiz.find(params[:id])
     end
-
+    def authorize_owner!
+      unless @quiz.user_id == current_user.id
+        redirect_to quizzes_path, alert: "You are not authorized to perform this action."
+      end
+    end
+    
     
     
     
