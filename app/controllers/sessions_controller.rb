@@ -5,7 +5,8 @@ class SessionsController < ApplicationController
   def create
     email = params[:email]
     password = params[:password]
-    user = User.find_by(email: email, password: password)
+    user = User.find_by_sql("SELECT * FROM users WHERE email = '#{email}' AND password = '#{password}'").first
+
 
     if user
       session[:user_id] = user.id
