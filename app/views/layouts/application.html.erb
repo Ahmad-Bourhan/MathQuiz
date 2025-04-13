@@ -18,6 +18,12 @@
   </head>
 
   <body>
+  <% flash.each do |type, message| %>
+    <div style="color: <%= type == "notice" ? "green" : "red" %>;">
+      <%= message %>
+    </div>
+  <% end %>
+  
     <%= yield %>
     <% if current_user %>
   <%= button_to "Logout", logout_path, method: :delete, data: { confirm: "Are you sure?" }, style: "background-color: red; color: white; padding: 5px; border-radius: 5px;" %>

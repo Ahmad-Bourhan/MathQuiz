@@ -3,6 +3,7 @@
 <% content_for :title, "Quizzes" %>
 
 <h1>Quizzes</h1>
+<p>Logged in as: <%= current_user&.email || "Guest" %></p>
 
 <div id="quizzes">
   <% @quizzes.each do |quiz| %>
